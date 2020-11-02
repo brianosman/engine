@@ -14,9 +14,7 @@
 #include "flutter/lib/ui/painting/vertices.h"
 #include "third_party/skia/include/core/SkCanvas.h"
 #include "third_party/skia/include/utils/SkShadowUtils.h"
-#include "third_party/tonic/typed_data/float32_list.h"
-#include "third_party/tonic/typed_data/float64_list.h"
-#include "third_party/tonic/typed_data/int32_list.h"
+#include "third_party/tonic/typed_data/typed_list.h"
 
 namespace tonic {
 class DartLibraryNatives;
@@ -167,8 +165,7 @@ class Canvas : public RefCountedDartWrappable<Canvas> {
                   bool transparentOccluder);
 
   SkCanvas* canvas() const { return canvas_; }
-  void Clear();
-  bool IsRecording() const;
+  void Invalidate();
 
   static void RegisterNatives(tonic::DartLibraryNatives* natives);
 
